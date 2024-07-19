@@ -13,6 +13,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+
+        // Planifier la commande pour qu'elle s'exécute tous les jours à minuit
+        $schedule->command('images:clear')->hourly();
     }
 
     /**

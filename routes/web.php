@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DiagnosticController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-})->name('index1');
+})->name('index');
 
 
-Route::get('/index2', function () {
-    return view('diagnostic');
-})->name('index2');
+Route::get('/diagnostic', [DiagnosticController::class, 'index'])->name('diagnostic');
 
+Route::post('/diagnostic-result', [DiagnosticController::class, 'get_predictions'])->name('prediction');
